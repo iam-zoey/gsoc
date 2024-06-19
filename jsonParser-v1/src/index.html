@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Go WebAssembly JSON Parser</title>
+</head>
+<body>
+    <h1>Go WebAssembly JSON Parser</h1>
+    <textarea id="jsonInput" rows="10" cols="50"></textarea>
+    <button onclick="parseJSON()">Parse JSON</button>
+    <pre id="output"></pre>
+
+    <script src="wasm_exec.js"></script>
+    <script>
+        const go = new Go();
+        WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
+            go.run(result.instance);
+        });
+
+        function parseJSON() {
+            const jsonInput = document.getElementById("jsonInput").value;
+            const output = parseJSON(jsonInput);
+            document.getElementById("output").innerText = output;
+        }
+    </script>
+</body>
+</html>
