@@ -9,9 +9,9 @@ There are two different dockerfile available
 
 ### v2. hong0331/my-go-app 
 It displays parsed JSON by rendering the logs from the container. 
-In the current `main.go` under func-go>cnd>fhttp, uncomment the line 45 ~ 81 
+In the current `main.go` under func-go>cnd>fhttp, uncomment the line 45 ~ 81 to run knative with this image
 
 - Status: working
-<br> 
+  <br> 
 ```docker run --runtime=io.containerd.wasmtime.v1 hong0331.my-go-app```
 
