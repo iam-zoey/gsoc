@@ -39,6 +39,6 @@ func parseJSON(this js.Value, p []js.Value) interface{} {
 func main() {
 	fmt.Println("webAssembly with GoLang ")
 	c := make(chan struct{}, 0)
-	js.Global().Set("parseJSON", js.FuncOf(parseJSON))
+	js.Global().Set("formatJSON", js.FuncOf(parseJSON))
 	<-c
 }
